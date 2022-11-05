@@ -1,6 +1,9 @@
 # Junction-2022-NFC-reader
 NFC reader for Junction 2022
 
+VERIFU COMAND:         0x00,0x20,0x00,0x81,0x08,0x12,0x34, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff
+
+
 Junction discord https://discord.com/invite/nHeYaBuq5R
 
 Nexi Hint 1: https://gist.github.com/jkauk-n/93bf368efa1f566cb686a05ca3b4f7d3
