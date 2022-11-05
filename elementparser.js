@@ -60,6 +60,21 @@ const importantHeaders = [
         keyword: "5a application primary account number",
         name: "Card Number",
         description: "Number of the card"
+    },
+    {
+        keyword: "Country Code",
+        name: "Country Code",
+        description: "This code can be parsed to show the origin country of the card"    
+    },
+    {
+        keyword: "Expiration Date",
+        name: "Expiration date",
+        description: "Expiration date of the card (YYMMDD)"
+    },
+    {
+        keyword: "application Usage Control",
+        name: "Usage control",
+        description: "Code can be translated to show restrictions regarding i.e online payments and abroad use"
     }
 ]
 
