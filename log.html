@@ -1,0 +1,1409 @@
+<html>
+<head>
+<title>TLV Utilities</title>
+<link href="/stylesheets/style.css" media="screen" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+<center>
+<table cellpadding="20">
+<tr class="topbar"><td class="topbar"><a class="pageheader" href="/main/">emvlab.org</a></td><td class="topbar">
+<div class="pageheader">TLV Utilities
+</td></tr>
+<tr><td valign="top">
+<div class="sidebar">
+<br>
+<b class="sidebartitle">emv</b><br>
+<a href="/emvtags/">emv tags</a><br>
+<a href="/tlvutils/">tlv decoder</a><br>
+<a href="/capcalc/">cap calculator</a><br>
+<a href="/cryptogram/">cryptogram calc</a><br>
+<br>
+<b class="sidebartitle">crypto</b><br>
+<a href="/descalc/">des calc</a><br>
+<a href="/dumpasn1/">asn1 decoder</a><br>
+<br>
+<b class="sidebartitle">banking</b><br>
+<a href="/pinblock/">pin translation</a><br>
+<a href="/keyshares/">keyshare tools</a><br>
+<br>
+<b class="sidebartitle">misc</b><br>
+<a href="/hexdump/">hex dump</a><br>
+<a href="/encoding/">char converter</a><br>
+<a href="/mrz/">mrz calculator</a><br>
+<br>
+<b class="sidebartitle">research</b><br>
+<a href="https://www.benthamsgaze.org/2016/06/02/international-comparison-of-bank-fraud-reimbursement-customer-perceptions-and-contractual-terms/">banking t&amp;c</a><br>
+<a href="https://www.benthamsgaze.org/2016/02/17/are-payment-card-contracts-unfair/">pin usage</a><br>
+<a href="https://www.benthamsgaze.org/2016/08/02/do-you-know-what-youre-paying-for-how-contactless-cards-are-still-vulnerable-to-relay-attack/">relay attack</a><br>
+<a href="https://www.benthamsgaze.org/2016/11/08/strong-customer-authentication-in-the-payment-services-directive-2/">sca in psd2</a><br>
+<a href="https://www.benthamsgaze.org/2018/11/08/uk-faster-payment-system-prompts-changes-to-fraud-regulation/">revocable payments</a><br>
+<a href="https://www.benthamsgaze.org/2019/06/13/digital-exclusion-and-fraud-the-dark-side-of-payments-authentication/">sim swap scams</a><br>
+<a href="https://www.benthamsgaze.org/2019/08/05/confirmation-of-payee-is-coming-but-will-it-protect-bank-customers-from-fraud/">confirmation of payee</a><br>
+<a href="https://www.benthamsgaze.org/2019/08/20/beyond-regulators-concerns-facebooks-libra-cryptocurrency-faces-another-big-challenge-the-risk-of-fraud/">fraud on libra</a><br>
+<br>
+<a href="https://www.benthamsgaze.org/">bentham&rsquo;s gaze</a><br>
+<br>
+<br>
+<img src="/images/spanner.png">
+</td>
+<td width=800>
+<div class="alert-box notice"><span>Update in July 2022: </span>The passport <a href="/mrz/">machine readable zone (MRZ) calculator</a>
+now permits gender to be unspecified.</span></div>
+<div class="pagecontent">
+
+
+
+
+<table class="tlvdecode">
+
+
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">6F
+      <a href="/emvtags/show/t6F/">File Control Information (FCI) Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">84
+      <a href="/emvtags/show/t84/">Dedicated File (DF) Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="5" class="tlvprimitive">325041592E5359532E4444463031</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">A5
+      <a href="/emvtags/show/tA5/">File Control Information (FCI) Proprietary Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">BF0C
+      <a href="/emvtags/show/tBF0C/">File Control Information (FCI) Issuer Discretionary Data</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">61
+      <a href="/emvtags/show/t61/">Application Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">4F
+      <a href="/emvtags/show/t4F/">Application Identifier (AID) &#8211; card</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">A0000001214711</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">50
+      <a href="/emvtags/show/t50/">Application Label</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">87
+      <a href="/emvtags/show/t87/">Application Priority Indicator</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">BF63
+      <a href="/emvtags/show/tBF63/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="2" class="tlvdecode">DF20
+      <a href="/emvtags/show/tDF20/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="1" class="tlvprimitive">80</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">61
+      <a href="/emvtags/show/t61/">Application Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">4F
+      <a href="/emvtags/show/t4F/">Application Identifier (AID) &#8211; card</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">A0000000031010</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">50
+      <a href="/emvtags/show/t50/">Application Label</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">V i s a D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">87
+      <a href="/emvtags/show/t87/">Application Priority Indicator</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">02</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">BF63
+      <a href="/emvtags/show/tBF63/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="2" class="tlvdecode">DF20
+      <a href="/emvtags/show/tDF20/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="1" class="tlvprimitive">80</td>
+</tr>
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">6F
+      <a href="/emvtags/show/t6F/">File Control Information (FCI) Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">84
+      <a href="/emvtags/show/t84/">Dedicated File (DF) Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="5" class="tlvprimitive">A0000001214711</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">A5
+      <a href="/emvtags/show/tA5/">File Control Information (FCI) Proprietary Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">50
+      <a href="/emvtags/show/t50/">Application Label</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">87
+      <a href="/emvtags/show/t87/">Application Priority Indicator</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F38
+      <a href="/emvtags/show/t9F38/">Processing Options Data Object List (PDOL)</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">9F66049F02069F03069F1A0295055F2A029A039C019F3704</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">5F2D
+      <a href="/emvtags/show/t5F2D/">Language Preference</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">d a e n s v n o </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F12
+      <a href="/emvtags/show/t9F12/">Application Preferred Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F11
+      <a href="/emvtags/show/t9F11/">Issuer Code Table Index</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">BF0C
+      <a href="/emvtags/show/tBF0C/">File Control Information (FCI) Issuer Discretionary Data</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">BF63
+      <a href="/emvtags/show/tBF63/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">DF20
+      <a href="/emvtags/show/tDF20/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">80</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">9F5A
+      <a href="/emvtags/show/t9F5A/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="3" class="tlvprimitive">3102080208</td>
+</tr>
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">9F17
+      <a href="/emvtags/show/t9F17/">Personal Identification Number (PIN) Try Counter</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="6" class="tlvprimitive">00</td>
+</tr>
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">6F
+      <a href="/emvtags/show/t6F/">File Control Information (FCI) Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">84
+      <a href="/emvtags/show/t84/">Dedicated File (DF) Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="5" class="tlvprimitive">A0000001214711</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">A5
+      <a href="/emvtags/show/tA5/">File Control Information (FCI) Proprietary Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">50
+      <a href="/emvtags/show/t50/">Application Label</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">87
+      <a href="/emvtags/show/t87/">Application Priority Indicator</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F38
+      <a href="/emvtags/show/t9F38/">Processing Options Data Object List (PDOL)</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">9F66049F02069F03069F1A0295055F2A029A039C019F3704</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">5F2D
+      <a href="/emvtags/show/t5F2D/">Language Preference</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">d a e n s v n o </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F12
+      <a href="/emvtags/show/t9F12/">Application Preferred Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F11
+      <a href="/emvtags/show/t9F11/">Issuer Code Table Index</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">BF0C
+      <a href="/emvtags/show/tBF0C/">File Control Information (FCI) Issuer Discretionary Data</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">BF63
+      <a href="/emvtags/show/tBF63/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">DF20
+      <a href="/emvtags/show/tDF20/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">80</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">9F5A
+      <a href="/emvtags/show/t9F5A/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="3" class="tlvprimitive">3102080208</td>
+</tr>
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">6F
+      <a href="/emvtags/show/t6F/">File Control Information (FCI) Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">84
+      <a href="/emvtags/show/t84/">Dedicated File (DF) Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="5" class="tlvprimitive">A0000000031010</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">A5
+      <a href="/emvtags/show/tA5/">File Control Information (FCI) Proprietary Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">50
+      <a href="/emvtags/show/t50/">Application Label</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">V i s a D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">87
+      <a href="/emvtags/show/t87/">Application Priority Indicator</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">02</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F38
+      <a href="/emvtags/show/t9F38/">Processing Options Data Object List (PDOL)</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">9F66049F02069F03069F1A0295055F2A029A039C019F3704</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">5F2D
+      <a href="/emvtags/show/t5F2D/">Language Preference</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">d a e n s v n o </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F12
+      <a href="/emvtags/show/t9F12/">Application Preferred Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">V i s a D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F11
+      <a href="/emvtags/show/t9F11/">Issuer Code Table Index</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">BF0C
+      <a href="/emvtags/show/tBF0C/">File Control Information (FCI) Issuer Discretionary Data</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">BF63
+      <a href="/emvtags/show/tBF63/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">DF20
+      <a href="/emvtags/show/tDF20/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">80</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">9F5A
+      <a href="/emvtags/show/t9F5A/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="3" class="tlvprimitive">3102080208</td>
+</tr>
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">9F17
+      <a href="/emvtags/show/t9F17/">Personal Identification Number (PIN) Try Counter</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="6" class="tlvprimitive">00</td>
+</tr>
+
+
+
+<tr>
+
+      
+      <td colspan="7" class="tlvdecode">6F
+      <a href="/emvtags/show/t6F/">File Control Information (FCI) Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">84
+      <a href="/emvtags/show/t84/">Dedicated File (DF) Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="5" class="tlvprimitive">A0000001214711</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="6" class="tlvdecode">A5
+      <a href="/emvtags/show/tA5/">File Control Information (FCI) Proprietary Template</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">50
+      <a href="/emvtags/show/t50/">Application Label</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">87
+      <a href="/emvtags/show/t87/">Application Priority Indicator</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F38
+      <a href="/emvtags/show/t9F38/">Processing Options Data Object List (PDOL)</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">9F66049F02069F03069F1A0295055F2A029A039C019F3704</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">5F2D
+      <a href="/emvtags/show/t5F2D/">Language Preference</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">d a e n s v n o </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F12
+      <a href="/emvtags/show/t9F12/">Application Preferred Name</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">D a n k o r t </td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">9F11
+      <a href="/emvtags/show/t9F11/">Issuer Code Table Index</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="4" class="tlvprimitive">01</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="5" class="tlvdecode">BF0C
+      <a href="/emvtags/show/tBF0C/">File Control Information (FCI) Issuer Discretionary Data</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">BF63
+      <a href="/emvtags/show/tBF63/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="3" class="tlvdecode">DF20
+      <a href="/emvtags/show/tDF20/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="2" class="tlvprimitive">80</td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+      <td class="tlvdecode">&nbsp;</td>
+
+      
+      <td colspan="4" class="tlvdecode">9F5A
+      <a href="/emvtags/show/t9F5A/">Unknown tag</a></td>
+</tr>
+
+
+
+<tr>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+      <td class="tlvout">&nbsp;</td>
+
+
+      <td colspan="3" class="tlvprimitive">3102080208</td>
+</tr>
+</table>
+
+<p><strong><a href="/tlvutils/">back to TLV decode</a></strong></p>
+
+<br/>
+<p align="center"><a href="/">https://emvlab.org/</a> &ndash; the one stop site for payment system researchers and practitioners &ndash; &copy; 2009&ndash;2019</p>
+<p align="center">This site is run by <a href="https://murdoch.is/">Steven Murdoch</a> and hosted by the <a href="http://sec.cs.ucl.ac.uk/">Information Security Group</a> at <a href="http://www.ucl.ac.uk/">University College London</a>. More details about the work we are doing can be found on our <a href="https://www.benthamsgaze.org/">information security research blog</a>: Bentham&rsquo;s Gaze.</p>
+<p align="center">EMV&reg; is a registered trademark of <a href="http://www.emvco.com/">EMVCo LLC</a>. This site and its operators are not affiliated or associated with or endorsed by EMVCo. All other trademarks and registered trademarks are the property of their respective owners.</p>
+
+</div>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12030133-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
+

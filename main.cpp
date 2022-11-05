@@ -8,6 +8,8 @@ extern "C" {
 #include <chrono>
 #include <thread>
 #include <fstream>
+#include <string>
+#include <sstream>
 
 
 #include "headers/application.h"
@@ -149,12 +151,16 @@ void start_scam(DeviceNFC &device, Application &app) {
         0x00, 0xA4, // SELECT ppse
         0x04, 0x00, // P1:By name, P2:_
         0x07,// length
-        0xA0, 0x00, 0x00, 0x00, 0x03, 0x10, 0x10,// data
+        // 0xA0, 0x00, 0x00, 0x00, 0x03, 0x10, 0x10,// data
+        0xA0, 0x00, 0x00, 0x01, 0x21, 0x47, 0x11,
         0x00 // we want response 256bit max
     };
     res = device.execute_command(selectappcommand, sizeof(selectappcommand), "own select app");
 
-
+// 00 00 00 00 
+// 00 00 00 00 
+// 01 03 1E 03
+// 02 03 1F 00
     // // VERIFY TODO DOES NOT WORK
     byte_t const commandVerify[] = {
         0x40, 0x01,
@@ -217,6 +223,43 @@ int main(int argc, char *argv[]) {
             for (Application &app : list) {
                 start_scam(device, app);
             }
+            std::string url = "curl https://emvlab.org/tlvutils/?data=";
+            // std::string url = "xdg-open https://paymentcardtools.com/emv-tlv-parser/?data=";
+            
+            std::ifstream outfile;
+            outfile.open("output.txt", std::ios_base::app);
+            
+            std::stringstream ss;
+            ss << outfile.rdbuf();
+            outfile.close();
+
+            url += ss.str();
+
+            url += " > log.html";
+
+
+            system(url.c_str());
+
+            std::ifstream htmlfile;
+            htmlfile.open("log.html", std::ios_base::app);
+
+            std::stringstream ss2;
+            ss2 << htmlfile.rdbuf();
+            htmlfile.close();
+
+            std::string backstring = ss2.str();
+            size_t pos = backstring.find("</body>");
+            backstring = backstring.substr(0,pos);
+
+            backstring += "<script type='text/javascript' src='./elementparser.js'>";
+            // backstring += "alert('this works');";
+            backstring += "</script></body></html>";
+            std::ofstream finalhtmlfile;
+            finalhtmlfile.open("result.html");
+            finalhtmlfile << backstring;
+            finalhtmlfile.close();
+
+            // system("explorer.exe log.html");
         }
 
     } catch (std::exception &e) {

@@ -84,7 +84,8 @@ APDU DeviceNFC::execute_command(byte_t const *command, size_t size, char const *
     if (ret.size > 3) {
         std::ofstream outfile;
         outfile.open("output.txt", std::ios_base::app);
-        outfile << "\n\n[Info]" << " Response from " << name << ": ";
+        // outfile << "\n\n[Info]" << " Response from " << name << ": ";
+        // outfile << "\n";
         outfile.close();
         std::cerr << GREEN("[Info]" << " Response from " << name << ": ");
         for (size_t i = 1; i < ret.size; ++i) {
@@ -95,7 +96,7 @@ APDU DeviceNFC::execute_command(byte_t const *command, size_t size, char const *
                 std::cout << HEX(ret.data[i]) << " ";
                 std::ofstream outfile;
                 outfile.open("output.txt", std::ios_base::app);
-                outfile << HEX(ret.data[i]) << " ";
+                outfile << HEX(ret.data[i]) << "";
                 outfile.close();
             }
         }
