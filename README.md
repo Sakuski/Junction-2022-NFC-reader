@@ -7,6 +7,9 @@ Nexi Hint 1: https://gist.github.com/jkauk-n/93bf368efa1f566cb686a05ca3b4f7d3
 
 Nexi Hint 2: https://gist.github.com/jkauk-n/4d667a6f2dbf797461d660029c3e8f77
 
+--
+
+credict card TLV full brute: https://pastebin.com/AzvNfXVb
 
 ## Usage
 ```
