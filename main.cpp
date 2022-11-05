@@ -75,32 +75,33 @@ void walk_through_gpo_files(DeviceNFC &device, Application &app) {
 
 void start_scam(DeviceNFC &device, Application &app) {
     device.select_application(app);
-    // std::cerr << std::endl;
+    std::cerr << std::endl;
  
-    //  byte_t const command[] = {
-    //     0x40, 0x01, // Pn532 InDataExchange
-    //     0x00, 0xA4, // SELECT ppse
-    //     0x04, 0x00, // P1:By name, P2:_
+    //TODO EDIT THIS COMMAND TO SEND GOOD COMMANDS
+     byte_t const command[] = {
+        0x40, 0x01, // Pn532 InDataExchange
+        0x00, 0xA4, // SELECT ppse
+        0x04, 0x00, // P1:By name, P2:_
 
-    //     0x0e, // Lc: Data length
-    //     0x32, 0x50, 0x41, 0x59, 0x2e, 0x53, 0x59, // Data string:
-    //     0x53, 0x2e, 0x44, 0x44, 0x46, 0x30, 0x31, // 2PAY.SYS.DDF01 (PPSE)
-    //     0x00 // Le
-    // };
-    // APDU res =device.execute_command(command, sizeof(command), "OWN COMMAND");
-    // bool file_exist = false;
+        0x0e, // Lc: Data length
+        0x32, 0x50, 0x41, 0x59, 0x2e, 0x53, 0x59, // Data string:
+        0x53, 0x2e, 0x44, 0x44, 0x46, 0x30, 0x31, // 2PAY.SYS.DDF01 (PPSE)
+        0x00 // Le
+    };
+    APDU res =device.execute_command(command, sizeof(command), "OWN COMMAND");
+    bool file_exist = false;
 
-    // byte_t sw1 = res.data[res.size-2];
-    // byte_t sw2 = res.data[res.size-1];
+    byte_t sw1 = res.data[res.size-2];
+    byte_t sw2 = res.data[res.size-1];
 
-    // if (sw1 == 0x90 && sw2 == 0x00) {
-    //     file_exist = true;
-    // } else if (sw1 == 0x6A && sw2 == 0x82) {
-    //     file_exist = false; // file does not exist
-    // }
-    // if (file_exist) {
-    //     std::cerr << std::endl;
-    // }
+    if (sw1 == 0x90 && sw2 == 0x00) {
+        file_exist = true;
+    } else if (sw1 == 0x6A && sw2 == 0x82) {
+        file_exist = false; // file does not exist
+    }
+    if (file_exist) {
+        std::cerr << std::endl;
+    }
 }
 
 int main(int argc, char *argv[]) {
