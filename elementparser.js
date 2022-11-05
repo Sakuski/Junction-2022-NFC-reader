@@ -1,5 +1,5 @@
 const table = document.getElementsByTagName("table")[1].outerHTML;
-
+const body = document.body;
 var t = document.getElementsByClassName("tlvdecode");
 
 var tr = document.getElementsByTagName("tr");
@@ -918,11 +918,7 @@ const CURR = {
     }
 };
 
-let dataObjectsNew = [{
-    name: "name field",
-    data: "data gained",
-    description: "description",
-}]
+let dataObjectsNew = [];
 const importantHeaders = [
     {
         keyword: "application identifier",
@@ -994,3 +990,76 @@ dataObjects.forEach(data  => checkImportance(data));
 console.log(dataObjectsNew);
 
 dataObjects = dataObjectsNew;
+
+body.innerHTML = "";
+body.style.background = "white";
+var headerDiv = document.createElement("div");
+headerDiv.innerHTML = '<h1 style="text-align: center; font-weight: bold; text-decoration: underline">CREDIT CARD DATA</h1>';
+headerDiv.style.textAlign = "center";
+
+body.appendChild(headerDiv);
+
+var tDiv = document.createElement("div");
+tDiv.style.display = "flex";
+tDiv.style.flexWrap = "wrap";
+body.appendChild(tDiv);
+
+var header2Div = document.createElement("div");
+header2Div.innerHTML = '<h3 style="text-align: center; font-weight: bold; text-decoration: underline">MORE DETAILED DATA</h3>';
+header2Div.style.textAlign = "center";
+header2Div.style.background = "white";
+body.appendChild(header2Div);
+
+for(var i = 0; i < dataObjects.length;i++){
+    
+    var outerDiv = document.createElement("div");
+    //outerDiv.style.display = "block";
+    outerDiv.style.margin = "1%";
+    outerDiv.style.width = "48%";
+    outerDiv.style.background = "white";
+    
+    var headerDiv = document.createElement("div");
+    headerDiv.innerHTML = dataObjects[i].name;
+    headerDiv.style.outline = "1px solid black";
+    headerDiv.style.textAlign = "center";
+    headerDiv.style.fontWeight = "bold";
+    
+    
+    var dataDiv = document.createElement("div");
+    dataDiv.innerHTML = dataObjects[i].data;
+    dataDiv.style.outline = "1px solid black";
+    dataDiv.style.wordWrap = "break-word";
+    dataDiv.style.textAlign = "center";
+    
+    var descDiv = document.createElement("div");
+    descDiv.innerHTML = dataObjects[i].description;
+    descDiv.style.outline = "1px solid black";
+    descDiv.style.wordWrap = "break-word";
+    descDiv.style.textAlign = "center";
+    descDiv.style.margin = "1px";
+    
+    outerDiv.appendChild(headerDiv);
+    outerDiv.appendChild(dataDiv);
+    outerDiv.appendChild(descDiv);
+    
+    
+    /*var tab = document.createElement("table");
+    
+    var header = tab.insertRow();
+    header.innerText = dataObjects[i].header;
+    header.style.outline = "1px solid black";
+    
+    var data = tab.insertRow();
+    data.innerText = dataObjects[i].data;
+    data.style.outline = "1px solid black";
+    
+    var empty = tab.insertRow();
+    empty.innerText = "\n";*/
+    
+    tDiv.appendChild(outerDiv);
+    
+}
+var dd = document.createElement("div");
+dd.innerHTML = table;
+body.appendChild(dd);
+
