@@ -29,3 +29,50 @@ for(var i = 2; i < tr.length; i++){
     
 }
 console.log(dataObjects);
+
+let dataObjectsNew = [{
+    name: "name field",
+    data: "data gained",
+    description: "description",
+}]
+const importantHeaders = [
+    {
+        keyword: "application identifier",
+        name: "Card Issuer Type",
+        description: "Application Identifier (AID)"
+    },
+    {
+        keyword: "application label",
+        name: "Card Type",
+        description: "Type of card"
+    },
+    {
+        keyword: "language preference",
+        name: "Languages",
+        description: "Preferred languages"
+    },
+    {
+        keyword: "try counter",
+        name: "PIN tries left",
+        description: "Number of PIN tries left"
+    },
+    {
+        keyword: "5a application primary account number",
+        name: "Card Number",
+        description: "Number of the card"
+    }
+]
+
+const checkImportance = (data) => {
+    const headerkeywords = data.header.toLowerCase()
+    importantHeaders.forEach(imp => {
+        if (headerkeywords.includes(imp.keyword)) {
+            dataObjectsNew.push({data: data.data, name: imp.name, description: imp.description})
+        }
+    })
+}
+dataObjects.forEach(data  => checkImportance(data));
+
+console.log(dataObjectsNew);
+
+dataObjects = dataObjectsNew;
