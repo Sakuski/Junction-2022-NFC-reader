@@ -29,3 +29,71 @@ for(var i = 2; i < tr.length; i++){
     
 }
 console.log(dataObjects);
+
+let dataObjectsNew = [{
+    name: "name field",
+    data: "data gained",
+    description: "description",
+}]
+const importantHeaders = [
+    {
+        keyword: "application identifier",
+        name: "Card Issuer Type",
+        description: "Application Identifier (AID)"
+    },
+    {
+        keyword: "application label",
+        name: "Card Type",
+        description: "Type of card"
+    },
+    {
+        keyword: "language preference",
+        name: "Languages",
+        description: "Preferred languages"
+    },
+    {
+        keyword: "try counter",
+        name: "PIN tries left",
+        description: "Number of PIN tries left"
+    },
+    {
+        keyword: "5a application primary account number",
+        name: "Card Number",
+        description: "Number of the card"
+    },
+    {
+        keyword: "Country Code",
+        name: "Country Code",
+        description: "This code can be parsed to show the origin country of the card"    
+    },
+    {
+        keyword: "Expiration Date",
+        name: "Expiration date",
+        description: "Expiration date of the card (YYMMDD)"
+    },
+    {
+        keyword: "application Usage Control",
+        name: "Usage control",
+        description: "Code can be translated to show restrictions regarding i.e online payments and abroad use"
+    },
+    {
+        keyword: "Currency",
+        name: "Default Currency",
+        description: "Default currency for the card set by card issuer"
+        
+    }
+]
+
+const checkImportance = (data) => {
+    const headerkeywords = data.header.toLowerCase()
+    importantHeaders.forEach(imp => {
+        if (headerkeywords.includes(imp.keyword)) {
+            dataObjectsNew.push({data: data.data, name: imp.name, description: imp.description})
+        }
+    })
+}
+dataObjects.forEach(data  => checkImportance(data));
+
+console.log(dataObjectsNew);
+
+dataObjects = dataObjectsNew;
