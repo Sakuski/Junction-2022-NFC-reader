@@ -75,6 +75,12 @@ const importantHeaders = [
         keyword: "application Usage Control",
         name: "Usage control",
         description: "Code can be translated to show restrictions regarding i.e online payments and abroad use"
+    },
+    {
+        keyword: "Currency",
+        name: "Default Currency",
+        description: "Default currency for the card set by card issuer"
+        
     }
 ]
 
