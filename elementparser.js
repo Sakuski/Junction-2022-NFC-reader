@@ -965,7 +965,7 @@ const importantHeaders = [
         description: "Code can be translated to show restrictions regarding i.e online payments and abroad use"
     },
     {
-        keyword: "currency",
+        keyword: "currency code",
         name: "Default Currency",
         description: "Default currency for the card set by card issuer"
         
@@ -983,6 +983,7 @@ const checkImportance = (data) => {
             } else if (headerkeywords.includes("currency")) {
                 console.log("here currency")
                 dataedited = CURR[Number(data.data).toString()]
+                console.log(Number(data.data), dataedited)
                 dataedited = `${dataedited.desc} (${dataedited.a3})`
             }
             dataObjectsNew.push({data: dataedited, name: imp.name, description: imp.description})
