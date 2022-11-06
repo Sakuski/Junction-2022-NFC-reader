@@ -22,6 +22,14 @@ void brute_device_records(DeviceNFC &device, Application &app, Mode mode) {
     device.select_application(app);
     std::cerr << std::endl;
 
+    // PIN counter (works)
+    byte_t const commandPINCounter[] = {
+        0x40, 0x01,
+        0x80, 0xCA,
+        0x9F, 0x17,
+        0x00
+    };
+    device.execute_command(commandPINCounter, sizeof(commandPINCounter), "PIN COUNTER");
     size_t to_record = (mode == Mode::fast ? 16:255);
 
     for (size_t sfi = 1; sfi <= 31; ++sfi) {
@@ -214,53 +222,59 @@ int main(int argc, char *argv[]) {
         if (mode == Mode::fast || mode == Mode::full) {
             for (Application &app : list) {
                 brute_device_records(device, app, mode);
+                break;
             }
         } else if (mode == Mode::GPO) {
             for (Application &app : list) {
                 walk_through_gpo_files(device, app);
+                break;
             }
         } else if (mode == Mode::scam) {
             for (Application &app : list) {
                 start_scam(device, app);
+                break;
             }
-            std::string url = "curl https://emvlab.org/tlvutils/?data=";
-            // std::string url = "xdg-open https://paymentcardtools.com/emv-tlv-parser/?data=";
-            
-            std::ifstream outfile;
-            outfile.open("output.txt", std::ios_base::app);
-            
-            std::stringstream ss;
-            ss << outfile.rdbuf();
-            outfile.close();
-
-            url += ss.str();
-
-            url += " > log.html";
-
-
-            system(url.c_str());
-
-            std::ifstream htmlfile;
-            htmlfile.open("log.html", std::ios_base::app);
-
-            std::stringstream ss2;
-            ss2 << htmlfile.rdbuf();
-            htmlfile.close();
-
-            std::string backstring = ss2.str();
-            size_t pos = backstring.find("</body>");
-            backstring = backstring.substr(0,pos);
-
-            backstring += "<script type='text/javascript' src='./elementparser.js'>";
-            // backstring += "alert('this works');";
-            backstring += "</script></body></html>";
-            std::ofstream finalhtmlfile;
-            finalhtmlfile.open("result.html");
-            finalhtmlfile << backstring;
-            finalhtmlfile.close();
-
-            // system("explorer.exe log.html");
         }
+        std::string url = "curl https://emvlab.org/tlvutils/?data=";
+        // std::string url = "xdg-open https://paymentcardtools.com/emv-tlv-parser/?data=";
+        
+        std::ifstream outtfile;
+        outtfile.open("output.txt", std::ios_base::app);
+        
+        std::stringstream ss;
+        ss << outtfile.rdbuf();
+        outtfile.close();
+
+        url += ss.str();
+
+        url += " > log.html";
+
+
+        system(url.c_str());
+
+        std::ifstream htmlfile;
+        htmlfile.open("log.html", std::ios_base::app);
+
+        std::stringstream ss2;
+        ss2 << htmlfile.rdbuf();
+        htmlfile.close();
+
+        std::string backstring = ss2.str();
+        size_t pos = backstring.find("</body>");
+        backstring = backstring.substr(0,pos);
+
+        backstring += "<script type='text/javascript' src='./elementparser.js'>";
+        // backstring += "alert('this works');";
+        backstring += "</script></body></html>";
+        std::ofstream finalhtmlfile;
+        finalhtmlfile.open("result.html");
+        finalhtmlfile << backstring;
+        finalhtmlfile.close();
+
+        // system("explorer.exe log.html");
+
+        std::cout << std::endl << "if in wsl run 'explorer.exe result.html' to see results" << std::endl;
+
 
     } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
