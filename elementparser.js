@@ -1,4 +1,8 @@
-const table = document.getElementsByTagName("table")[1].outerHTML;
+const tabl = document.getElementsByTagName("table");
+if (tabl.length != 2) {
+    document.body.innerHTML = "THERE WAS AN ERROR"
+} else {
+const table = tabl[1].outerHTML;
 const body = document.body;
 var t = document.getElementsByClassName("tlvdecode");
 
@@ -1063,3 +1067,12 @@ var dd = document.createElement("div");
 dd.innerHTML = table;
 body.appendChild(dd);
 
+const as = document.getElementsByTagName("a")
+console.log(as)
+for (var i = 0; i < as.length; i++) {
+    as[i].removeAttribute("href");
+    as[i].style.fontWeight = "bold";
+}
+// as.forEach(elem => elem.removeAttribute("href"));
+}
+console.log(tabl)
